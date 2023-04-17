@@ -24,7 +24,7 @@ mongoose
 // middleware
 app.use(morgan("dev"));
 app.use(express.json({ limit: "5mb" }));
-app.use(express.urlencoded({ limit: "5mb" }));
+app.use(express.urlencoded({ limit: "5mb", extended: true }));
 app.use(cookieParser());
 app.use(cors());
 
@@ -32,7 +32,7 @@ app.use(cors());
 app.use(errorHandler);
 
 // routes middleware
-app.use("/", authRoutes);
+app.use("/api", authRoutes);
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);

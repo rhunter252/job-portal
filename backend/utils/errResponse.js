@@ -1,7 +1,8 @@
-function ErrorResponse(message, codeStatus) {
-  const error = new Error(message);
-  error.codeStatus = codeStatus;
-  return error;
+class ErrorResponse extends Error {
+  constructor(message, codeStatus) {
+    super(message);
+    this.codeStatus = codeStatus;
+  }
 }
 
 module.exports = ErrorResponse;
